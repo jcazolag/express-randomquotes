@@ -5,13 +5,13 @@ import random
 app = Flask(__name__)
 
 phrases = [
-    "Get ready to be inspired…", 
-    "See rejection as redirection.",
-    "There is beauty in simplicity.",
-    "You can’t be late until you show up.",
-    "Maybe life is testing you. Don’t give up.",
-    "Impossible is just an opinion.",
-    "Alone or not you gonna walk forward.",
+    "1. Get ready to be inspired…", 
+    "2. See rejection as redirection.",
+    "3. There is beauty in simplicity.",
+    "4. You can’t be late until you show up.",
+    "5. Maybe life is testing you. Don’t give up.",
+    "6. Impossible is just an opinion.",
+    "7. Alone or not you gonna walk forward.",
 ]
 
 
