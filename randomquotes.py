@@ -22,5 +22,5 @@ def get_random_quote():
     return f"{phrase} - Container Id: {container_id}"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=80)
 
