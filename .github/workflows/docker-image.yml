@@ -1,25 +1,25 @@
-name: Docker Image CI
+name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master 
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: docker login
-      env:
-        DOCKER_USER: ${{secrets.DOCKERHUB_USER}} 
-        DOCKER_PASS: ${{secrets.DOCKERHUB_PASS}}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag jcazolag/express-randomquotes:latest 
-    - name: Docker Push 
-      run: docker push jcazolag/express-randomquotes 
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Login to DockerHub
+      run: docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_PASS }}
+      
+    - name: Build Docker image
+      run: docker build . --file Dockerfile --tag jcazolag/express-randomquotes:latest
+      
+
+    
+    - name: Push Docker image
+      run: docker push jcazolag/express-randomquotes:latest
